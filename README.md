@@ -20,3 +20,47 @@ This project bridges the gap between raw nutritional data and consumer-friendly 
 
 ---
 > **Note on Data and Models:** > To maintain repository performance and adhere to GitHub's file size limits, the original 12GB dataset and the compiled `.pkl` model files are not hosted directly in this repository. The deployment environment is configured to automatically pull the necessary pre-trained models from a secure cloud storage link during the build phase.
+## 🚀 How to Run Locally
+
+Because this project relies on large Machine Learning models that exceed standard version control limits, the pre-trained `.pkl` files are not included in this repository. 
+
+Follow these steps to set up the environment and fetch the necessary model files automatically.
+
+### Prerequisites
+* **Python 3.8+** installed on your machine.
+* **Git** installed.
+
+### Step-by-Step Setup
+
+**1. Clone the repository**
+```bash
+git clone [https://github.com/VishwasShirurmath/Nutrition-Analysis-using-ML.git](https://github.com/VishwasShirurmath/Nutrition-Analysis-using-ML.git)
+cd Nutrition-Analysis-using-ML 
+
+On Linux/macOS (Bash/Zsh):
+python3 -m venv .venv
+source .venv/bin/activate
+
+On Linux/macOS (Fish Shell):
+python3 -m venv .venv
+source .venv/bin/activate.fish
+
+On Windows:
+python -m venv .venv
+.venv\Scripts\activate
+
+Install dependencies
+pip install -r requirements.txt
+
+Fetch the Pre-Trained Models
+Run the included bash script to automatically download the Random Forest model files from secure cloud storage into the correct directories.
+bash build.sh
+
+Start the Server
+Once the models are successfully downloaded, start the local development server:
+gunicorn app:app
+```
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/e82d90d8-5fc0-468e-a42b-ebbf6228c4c9" />
+
+
+
